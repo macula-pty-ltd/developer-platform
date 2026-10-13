@@ -65,7 +65,7 @@ export class Sandbox {
       hash: bytesToHex(tx.hash()),
       gasUsed: result.totalGasSpent.toString(),
       blockNumber: this.height,
-      logs: result.execResult.logs || [],
+      logs: (result.execResult.logs || []).map(([address,topics,data])=>({address:bytesToHex(address),topics:topics.map(bytesToHex),data:bytesToHex(data)})),
       status: 1,
       sandbox: true,
     };

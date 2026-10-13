@@ -12,7 +12,7 @@ test("Counter deploys, writes, emits and preserves bytecode in a Paris EVM", asy
   assert.equal((await s.read(d.address, a.abi, "number"))[0], 0n);
   const r = await s.write(d.address, a.abi, "increment");
   assert.equal((await s.read(d.address, a.abi, "number"))[0], 1n);
-  assert.equal(r.logs.length, 1);
+  assert.equal(r.logs.length, 1);assert.equal(new Interface(a.abi).parseLog(r.logs[0]).name,"NumberChanged");
   assert.equal(await s.code(d.address), a.runtime);
 });
 test("ERC20 fixed supply and transfer", async () => {

@@ -94,6 +94,7 @@ test("compiler errors fail without recording a match", async () => {
   assert.equal(r.status, 503);
   assert.match((await r.json()).error, /ParserError/);
 });
+test("source size is bounded in UTF-8 bytes",async()=>{const r=await post({...p,source:"é".repeat(33000)},"unicode-bound");assert.equal(r.status,400);});
 test.after(async () => {
   await new Promise((r) => server.close(r));
   await new Promise((r) => fake.close(r));

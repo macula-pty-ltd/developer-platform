@@ -166,13 +166,9 @@ function reply(res, code, data, type = "application/json") {
   res.end(body);
 }
 async function body(req) {
-  let s = "";
-  for await (const part of req) {
-    s += part;
-    if (Buffer.byteLength(s) > 131072)
-      throw Error("Source request exceeds 128 KiB.");
-  }
-  return JSON.parse(s);
+  const chunks=[];let size=0;
+  for await(const part of req){size+=part.length;if(size>131072)throw Error("Source request exceeds 128 KiB.");chunks.push(part);}
+  return JSON.parse(Buffer.concat(chunks).toString("utf8"));
 }
 const types = {
   ".html": "text/html; charset=utf-8",
@@ -308,7 +304,7 @@ const server = http.createServer(async (req, res) => {
         !/^contracts\/[A-Za-z0-9_-]{1,64}\.sol$/.test(p.filename || "") ||
         !/^\w{1,64}$/.test(p.contract || "") ||
         typeof p.source !== "string" ||
-        p.source.length > 65536
+        Buffer.byteLength(p.source,"utf8") > 65536
       )
         return reply(res, 400, {
           error:
