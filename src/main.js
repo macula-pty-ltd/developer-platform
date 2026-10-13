@@ -476,6 +476,7 @@ async function exportProject() {
     const full = await (await fetch("/templates/" + t.id + ".json")).json();
     let input = full.input;
     if (t.id === state.template?.id && state.input) input = state.input;
+    for (const [sourcePath,entry] of Object.entries(input.sources)) files[prefix+sourcePath]=strToU8(entry.content);
     files[prefix + "standard-inputs/" + t.id + ".json"] = strToU8(
       pretty({ input, filename: t.filename, name: t.name }),
     );

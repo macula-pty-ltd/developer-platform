@@ -20,4 +20,4 @@ for(const file of fs.readdirSync('standard-inputs')){const {input,filename,name}
   "README.md":
     "# MACULA developer starter\n\nRun `npm ci`, `npm run compile`, then `npm test`. Solidity 0.8.37, optimizer 200 runs, Paris EVM. Standard compiler inputs include every dependency and may be imported into explorer verification workflows. Sandbox tests use fake funds and do not broadcast transactions.\n\nFor live deployment use your own wallet and confirm the network history at https://dev.macula.co.za. Chain ID alone does not identify a fork. No private keys belong in this project.\n\nOpenZeppelin core 5.6.1 and Paris-compatible NFT examples 4.9.6 are pinned. Examples are educational and require review before handling real funds.\n",
 };
-fs.writeFileSync("public/starter-files.json", JSON.stringify(files));
+files["LICENSE"]=fs.readFileSync("LICENSE","utf8");files["licenses/OpenZeppelin-MIT.txt"]=fs.readFileSync("public/licenses/OpenZeppelin-MIT.txt","utf8");files["licenses/OpenZeppelin-v4-MIT.txt"]=fs.readFileSync("public/licenses/OpenZeppelin-v4-MIT.txt","utf8");fs.writeFileSync("public/starter-files.json", JSON.stringify(files));
