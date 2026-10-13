@@ -119,4 +119,4 @@ for (const [id, name, title, description, level] of definitions) {
 fs.writeFileSync("public/templates.json", JSON.stringify(list));
 fs.copyFileSync("node_modules/solc/soljson.js", "public/compiler/soljson.js");
 
-fs.mkdirSync("public/licenses",{recursive:true});for(const [name,file] of [["solc","solc-js-MIT.txt"],["@openzeppelin/contracts","OpenZeppelin-MIT.txt"],["@openzeppelin/contracts-v4","OpenZeppelin-v4-MIT.txt"]])fs.copyFileSync("node_modules/"+name+"/LICENSE","public/licenses/"+file);
+fs.mkdirSync("public/licenses",{recursive:true});fs.copyFileSync("node_modules/solc/LICENSE","public/licenses/solc-js-MIT.txt");

@@ -1,5 +1,7 @@
 # MACULA Developers
 
+Live: https://dev.macula.co.za/ · RPC: https://rpc.macula.co.za/ · Explorer: https://explorer.macula.co.za/
+
 Self-hosted developer portal for the independently operated MACULA BlockDAG RPC. Includes a browser-local Paris EVM sandbox, pinned Solidity/OpenZeppelin templates, self-hosted Remix, live checkpoint comparisons, wallet-owned mainnet interactions, and bounded exact-runtime source verification.
 
 ## Build
@@ -11,3 +13,5 @@ Node service binds loopback 8120. Docker runs as user node with read-only root f
 Compiler: 0.8.37; optimizer 200; EVM Paris. NFT/ERC1155 use OpenZeppelin 4.9.6 because the newer implementation produces unsupported opcodes on the current node. Chain ID 1404 alone is insufficient: mainnet signing requires independent checkpoint agreement and the wallet RPC must match that history.
 
 Examples are educational and require review before handling real funds. Runtime correspondence is not a security audit. Historical indexing and public WSS are not provided. Mainnet funded signing requires the owner's wallet; automated tests use sandbox funds only.
+
+See CONTRIBUTING.md for templates and bug reports; DEPLOYMENT.md for release, rollback, persistence and resource limits. Third-party licenses are served under /licenses/; Remix modifications and upstream license remain in its bundle. Solidity 0.8.37 corresponding source: https://github.com/ethereum/solidity/tree/v0.8.37.
