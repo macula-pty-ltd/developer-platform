@@ -1,0 +1,6 @@
+{
+  "upstream": "remix-project-org/remix-live",
+  "commit": "b8ff3b694dc1d71840fa72a83c8e1be050fc1b02",
+  "upstreamBuild": "812df466f9",
+  "localChange": "base URL /remix/ for dedicated route"
+}

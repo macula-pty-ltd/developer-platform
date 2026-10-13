@@ -1,0 +1,22 @@
+services:
+  developers:
+    image: macula/developers:20261013
+    container_name: macula-developers
+    network_mode: host
+    restart: unless-stopped
+    read_only: true
+    mem_limit: 1g
+    cpus: 0.75
+    pids_limit: 64
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    tmpfs: ["/tmp:size=32m,noexec,nosuid"]
+    volumes:
+      - /home/dreampie/macula-developer-data:/data
+      - ./dist:/app/dist:ro
+      - ./public:/app/public:ro
+      - ./server.mjs:/app/server.mjs:ro
+    environment:
+      NODE_ENV: production
+      DATA_DIR: /data
+      PORT: 8120

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.data/
+public/remix/
+public/compiler/soljson.js
+public/imports.json
+public/templates/
+public/templates.json
+public/starter-files.json
+evidence/*.zip

@@ -1,0 +1,2 @@
+# MACULA developer environment
+A public self-hosted developer entrance on DreamPIE for building against rpc.macula.co.za. Beginners can edit, compile and execute a contract in a real browser-local EVM without a wallet. Developers can export a complete project, use full Remix, connect their own wallet for explicit mainnet deployments, inspect receipts, verify source and interact with contracts. No server key custody, account requirement or shared shell. Full historical/native DAG indexing remains a separately scoped infrastructure enhancement.

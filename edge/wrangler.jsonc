@@ -1,0 +1,1 @@
+{"name":"macula-developer-router","main":"worker.js","compatibility_date":"2026-10-13","account_id":"ad3b9a31d661dc6383e900452c1e33fd","workers_dev":false,"routes":[{"pattern":"dev.macula.co.za","custom_domain":true}]}
