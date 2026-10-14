@@ -1,5 +1,6 @@
-import {suiteHeader} from "./suite-navigation.js";
+import {suiteHeader,suiteFooter} from "./suite-navigation.js";
 import "./suite-navigation.css";
+import "./suite-footer.css";
 import "./styles.css";
 import { EditorState } from "@codemirror/state";
 import { EditorView, lineNumbers, highlightActiveLine } from "@codemirror/view";
@@ -103,7 +104,7 @@ async function job(fn) {
   }
 }
 const header = route => `<a class="skip" href="#main">Skip to developer tools</a>`+suiteHeader({active:route==='/status'?'network':'developers',section:'Developer tools',current:route,items:[['/','Overview','#/'],['/playground','Playground','#/playground'],['/contracts','Contracts','#/contracts'],['/docs','Docs & API','#/docs'],['/verify','Verify','#/verify'],['/projects','Community','#/projects']]});
-const footer = `<footer class="wrap footer"><p>MACULA (Pty) Ltd · Registration 2013/028237/07<br>Art &amp; Design Centre, 72 Loop Street, Cape Town, 8001, South Africa</p><nav aria-label="Footer"><a href="https://explorer.macula.co.za/" target="_blank" rel="noopener">Explorer</a><a href="https://macula.co.za/privacy">Privacy</a><a href="https://macula.co.za/contact">Contact</a></nav></footer>`;
+const footer = suiteFooter({site:'developers'});
 function rows(list) {
   return `<div class="catalog">${list.map((t) => `<article class="template-row"><h3>${esc(t.title)}</h3><p>${esc(t.description)}</p><span class="level">${esc(t.level)}</span><a class="button secondary" href="${link(t.id)}">Open example</a></article>`).join("")}</div>`;
 }
